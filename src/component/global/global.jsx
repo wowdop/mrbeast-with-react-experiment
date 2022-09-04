@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import S from './global.style'
 
 const Global = () => <S.Global />

@@ -1,7 +1,14 @@
 import S from './anchor.style'
 
-const Anchor = ({ children, to, title, dataTestid }) => (
-  <S.Anchor>
+const Anchor = ({
+  children,
+  to,
+  title,
+  dataTestid,
+  onMouseOver,
+  onMouseOut,
+}) => (
+  <S.Anchor onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
     <S.Shadow>{children}</S.Shadow>
 
     <S.NoteWrapper>

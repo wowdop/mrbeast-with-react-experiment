@@ -37,7 +37,7 @@ const Global = createGlobalStyle`
 
   body {
     margin: 0;
-    /* cursor: none !important; */
+    cursor: none !important;
   }
 
 `
