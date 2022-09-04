@@ -66,7 +66,7 @@ const Note = styled.div`
 `
 
 const Link = styled.a`
-  background-color: hsla(54, 100%, 58%);
+  background-color: hsla(${({ hue = 54 }) => hue}, 100%, 58%);
   color: white;
   display: inline-flex;
   border: 2px solid black;

@@ -7,6 +7,7 @@ const Anchor = ({
   dataTestid,
   onMouseOver,
   onMouseOut,
+  hue,
 }) => (
   <S.Anchor onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
     <S.Shadow>{children}</S.Shadow>
@@ -22,6 +23,7 @@ const Anchor = ({
       href={to}
       title={title}
       data-testid={dataTestid}
+      hue={hue}
     >
       {children}
     </S.Link>

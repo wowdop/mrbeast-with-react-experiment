@@ -19,12 +19,24 @@ const App = () => {
           Shop All
         </Anchor>
 
-        <Anchor onMouseOver={handleOver} onMouseOut={handleOut}>
+        <Anchor hue={1100} onMouseOver={handleOver} onMouseOut={handleOut}>
           Hi Alex
         </Anchor>
 
         <Anchor onMouseOver={handleOver} onMouseOut={handleOut}>
           Hi Maria
+        </Anchor>
+
+        <Anchor hue={0} onMouseOver={handleOver} onMouseOut={handleOut}>
+          Go Gratiela
+        </Anchor>
+
+        <Anchor hue={475} onMouseOver={handleOver} onMouseOut={handleOut}>
+          Join YouTube
+        </Anchor>
+
+        <Anchor hue={762} onMouseOver={handleOver} onMouseOut={handleOut}>
+          Join TikTok
         </Anchor>
       </Box>
 
