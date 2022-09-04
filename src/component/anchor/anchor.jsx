@@ -2,7 +2,7 @@ import S from './anchor.style'
 
 const Anchor = ({ children, to, title, dataTestid }) => (
   <S.Anchor>
-    <S.Shadow />
+    <S.Shadow>{children}</S.Shadow>
 
     <S.NoteWrapper>
       <S.Note left={10} top={-15} />

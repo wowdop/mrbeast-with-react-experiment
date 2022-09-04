@@ -1,13 +1,24 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
+
+const commonText = css`
+  font-size: 3rem;
+  font-weight: 900;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+`
 
 const Shadow = styled.div`
-  position: absolute;
-  left: 4px;
-  right: -4px;
-  bottom: -4px;
-  top: 4px;
+  position: relative;
+  left: 0;
+  right: -0;
+  bottom: -0;
+  top: 0;
   background-color: #000;
   border-radius: 4px;
+  white-space: nowrap;
+  border: 2px solid transparent;
+
+  ${commonText}
 `
 
 const swingAnimation = keyframes`
@@ -23,6 +34,7 @@ const NoteWrapper = styled.div`
   position: absolute;
   top: -130px;
   left: 0;
+  pointer-events: none;
 
   & > div:nth-child(1) {
     animation-delay: 0;
@@ -53,26 +65,21 @@ const Note = styled.div`
   animation: ${swingAnimation} infinite 700ms alternate;
 `
 
-const Anchor = styled.div`
-  position: relative;
-  display: inline-block;
-  margin: 1rem 3rem;
-`
-
 const Link = styled.a`
   background-color: hsla(54, 100%, 58%);
   color: white;
-  font-size: 3rem;
-  font-weight: 900;
-  text-transform: uppercase;
   display: inline-flex;
-  padding: 1rem 3rem;
   border: 2px solid black;
   border-radius: 4px;
   text-shadow: 4px 4px 0 black;
   -webkit-text-stroke: 4px black;
-  position: relative;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  transition: 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   white-space: nowrap;
+
+  ${commonText}
 
   &::before {
     position: absolute;
@@ -89,6 +96,17 @@ const Link = styled.a`
     text-shadow: 0;
     -webkit-text-stroke: 0;
     font-size: 3rem;
+  }
+`
+
+const Anchor = styled.div`
+  position: relative;
+  display: inline-block;
+  margin: 1rem 3rem;
+
+  &:hover ${Link} {
+    top: -8px;
+    left: -8px;
   }
 `
 

@@ -29,6 +29,16 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Inter var';
   }
+  
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    /* cursor: none !important; */
+  }
 
 `
 
