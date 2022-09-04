@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Anchor, Cursor, Global } from '..'
+import { Anchor, Box, Cursor, Global } from '..'
 
 const Portal = ({ children, id }) =>
   createPortal(children, document.querySelector(`#${id}`))
@@ -14,9 +14,19 @@ const App = () => {
       <Global />
       <h1>MRBeast shop all animated buttons</h1>
 
-      <Anchor onMouseOver={handleOver} onMouseOut={handleOut}>
-        Shop All
-      </Anchor>
+      <Box>
+        <Anchor onMouseOver={handleOver} onMouseOut={handleOut}>
+          Shop All
+        </Anchor>
+
+        <Anchor onMouseOver={handleOver} onMouseOut={handleOut}>
+          Hi Alex
+        </Anchor>
+
+        <Anchor onMouseOver={handleOver} onMouseOut={handleOut}>
+          Hi Maria
+        </Anchor>
+      </Box>
 
       <Portal id="cursor">
         <Cursor icon={cursorIcon} />

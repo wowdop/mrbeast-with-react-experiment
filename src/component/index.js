@@ -1,4 +1,5 @@
 export { Anchor } from './anchor'
 export { App } from './app'
+export { Box } from './box'
 export { Cursor } from './cursor'
 export { Global } from './global'
