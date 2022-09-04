@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const Shadow = styled.div`
   position: absolute;
@@ -8,6 +8,49 @@ const Shadow = styled.div`
   top: 4px;
   background-color: #000;
   border-radius: 4px;
+`
+
+const swingAnimation = keyframes`
+  0% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+`
+
+const NoteWrapper = styled.div`
+  position: absolute;
+  top: -130px;
+  left: 0;
+
+  & > div:nth-child(1) {
+    animation-delay: 0;
+  }
+
+  & > div:nth-child(2) {
+    animation-delay: 250ms;
+  }
+
+  & > div:nth-child(3) {
+    animation-delay: 400ms;
+  }
+`
+
+const Note = styled.div`
+  /* background-color: green; */
+  width: 100px;
+  height: 200px;
+  left: ${({ left }) => left}px;
+  top: ${({ top }) => top}px;
+  position: absolute;
+  z-index: 10;
+  background-image: url(/image/pound-note.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transform: rotate(10deg);
+  animation: ${swingAnimation} infinite 700ms alternate;
 `
 
 const Anchor = styled.div`
@@ -49,6 +92,6 @@ const Link = styled.a`
   }
 `
 
-const style = { Anchor, Link, Shadow }
+const style = { Anchor, Link, Note, NoteWrapper, Shadow }
 
 export default style
