@@ -5,7 +5,7 @@ const Cursor = ({ icon = 'arrow' }) => {
   const cursorRef = useRef()
   const [show, toggle] = useState()
 
-  const saySomething = (e) => {
+  const move = (e) => {
     const { clientX, clientY } = e
     cursorRef.current.style.left = `${clientX}px`
     cursorRef.current.style.top = `${clientY}px`
@@ -15,14 +15,14 @@ const Cursor = ({ icon = 'arrow' }) => {
   const enter = (e) => toggle(true)
 
   useEffect(() => {
-    document.addEventListener('mousemove', saySomething)
+    document.addEventListener('mousemove', move)
     document.addEventListener('mouseleave', leave)
     document.addEventListener('mouseenter', enter)
 
     return () => {
       document.removeEventListener('mouseleave', leave)
       document.removeEventListener('mouseenter', enter)
-      document.removeEventListener('mousemove', saySomething)
+      document.removeEventListener('mousemove', move)
     }
   }, [])
 
