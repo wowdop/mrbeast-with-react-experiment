@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import S from './anchor.style'
 
 const Anchor = ({
@@ -8,26 +9,36 @@ const Anchor = ({
   onMouseOver,
   onMouseOut,
   hue,
-}) => (
-  <S.Anchor onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
-    <S.Shadow>{children}</S.Shadow>
+}) => {
+  const getRandom = (n) => ~~(Math.random() * n)
+  const [first, second, third] = useMemo(
+    () => Array.from({ length: 3 }, () => getRandom(1500)),
+    []
+  )
 
-    <S.NoteWrapper>
-      <S.Note left={10} top={-15} />
-      <S.Note left={150} top={80} />
-      <S.Note left={230} top={-25} />
-    </S.NoteWrapper>
+  return (
+    <S.Anchor onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+      <S.Shadow>{children}</S.Shadow>
 
-    <S.Link
-      data-text={children}
-      href={to}
-      title={title}
-      data-testid={dataTestid}
-      hue={hue}
-    >
-      {children}
-    </S.Link>
-  </S.Anchor>
-)
+      {
+        <S.NoteWrapper>
+          <S.Note animationDelay={first} left={10} top={-15} />
+          <S.Note animationDelay={second} left={150} top={80} />
+          <S.Note animationDelay={third} left={230} top={-25} />
+        </S.NoteWrapper>
+      }
+
+      <S.Link
+        data-text={children}
+        href={to}
+        title={title}
+        data-testid={dataTestid}
+        hue={hue}
+      >
+        {children}
+      </S.Link>
+    </S.Anchor>
+  )
+}
 
 export default Anchor

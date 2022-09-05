@@ -7,8 +7,10 @@ const Cursor = ({ icon = 'arrow' }) => {
 
   const move = (e) => {
     const { clientX, clientY } = e
-    cursorRef.current.style.left = `${clientX}px`
-    cursorRef.current.style.top = `${clientY}px`
+    if (cursorRef.current) {
+      cursorRef.current.style.left = `${clientX}px`
+      cursorRef.current.style.top = `${clientY}px`
+    }
   }
 
   const leave = (e) => toggle(false)

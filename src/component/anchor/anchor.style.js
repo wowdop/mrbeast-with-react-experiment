@@ -30,23 +30,13 @@ const swingAnimation = keyframes`
   }
 `
 
+const getAnimationDelay = ({ animationDelay }) => `${animationDelay}ms`
+
 const NoteWrapper = styled.div`
   position: absolute;
   top: -130px;
   left: 0;
   pointer-events: none;
-
-  & > div:nth-child(1) {
-    animation-delay: 0;
-  }
-
-  & > div:nth-child(2) {
-    animation-delay: 250ms;
-  }
-
-  & > div:nth-child(3) {
-    animation-delay: 400ms;
-  }
 `
 
 const Note = styled.div`
@@ -63,6 +53,7 @@ const Note = styled.div`
   background-position: center bottom;
   transform: rotate(10deg);
   animation: ${swingAnimation} infinite 700ms alternate;
+  animation-delay: ${getAnimationDelay};
 `
 
 const Link = styled.a`
